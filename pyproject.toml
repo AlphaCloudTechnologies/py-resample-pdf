@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-resampler"
+version = "1.0.0"
+description = "Reduce PDF file size by resampling embedded images to a target DPI"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = [
+    "pdf",
+    "image",
+    "compression",
+    "resample",
+    "dpi",
+    "pikepdf",
+    "optimize",
+    "reduce",
+    "file-size"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "pikepdf>=8.0.0",
+    "Pillow>=9.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+pdf-resampler = "pdf_resampler.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/pdf-resampler"
+Documentation = "https://github.com/yourusername/pdf-resampler#readme"
+Repository = "https://github.com/yourusername/pdf-resampler"
+Issues = "https://github.com/yourusername/pdf-resampler/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pdf_resampler*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "D", "UP", "B", "C4", "SIM"]
+ignore = ["D100", "D104", "D107"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
