@@ -83,9 +83,8 @@ ehthumbs.db
 Desktop.ini
 
 # Project specific
-input/
 output/
-*.pdf
+
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
